@@ -10,4 +10,12 @@
 			<item value="/home/bruno/eclipse-workspace/arcadenoe"/>
 		</list>
 	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="332"/>
+		<item key="DIALOG_Y_ORIGIN" value="166"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
 </section>

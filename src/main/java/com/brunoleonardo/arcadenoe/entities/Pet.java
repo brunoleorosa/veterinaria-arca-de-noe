@@ -23,7 +23,7 @@ public class Pet {
 	@Column(name = "idade")
 	Integer idade;
 	
-	@ManyToOne()
+	@ManyToOne
 	Tutor tutor;
 
 	public Pet(Long id, String nome, String raca, Integer idade, Tutor tutor) {

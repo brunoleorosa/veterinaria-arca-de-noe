@@ -24,8 +24,11 @@ public class Tutor {
 	@Column(name = "tutor_sobrenome", length = 50)
 	String sobrenome;
 	
-	@Column(name = "CPF")
+	@Column(name = "CPF", unique = true)
 	String cpf;
+	
+	@Column(name = "email")
+	String email;
 	
 	@OneToOne
 	Endereco endereco;

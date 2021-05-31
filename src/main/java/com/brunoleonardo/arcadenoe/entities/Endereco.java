@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Endereco {
@@ -19,19 +20,19 @@ public class Endereco {
 	@Column(name = "CEP")
 	String cep;
 	
-	@Column(name = "Bairro")
+	@Column(name = "bairro")
 	String bairro;
 	
-	@Column(name = "Cidade")
-	String cidade;
+	@OneToOne
+	Cidade cidade;
 	
-	@Column(name = "Estado")
-	String estado;
+	@OneToOne
+	Estado estado;
 	
-	@Column(name = "País")
-	String pais;
+	@OneToOne
+	Pais pais;
 
-	public Endereco(Long id, String logradouro, String cep, String bairro, String cidade, String estado, String pais) {
+	public Endereco(Long id, String logradouro, String cep, String bairro, Cidade cidade, Estado estado, Pais pais) {
 		this.id = id;
 		this.logradouro = logradouro;
 		this.cep = cep;
@@ -57,15 +58,15 @@ public class Endereco {
 		return bairro;
 	}
 
-	public String getCidade() {
+	public Cidade getCidade() {
 		return cidade;
 	}
 
-	public String getEstado() {
+	public Estado getEstado() {
 		return estado;
 	}
 
-	public String getPais() {
+	public Pais getPais() {
 		return pais;
-	}	
+	}
 }
