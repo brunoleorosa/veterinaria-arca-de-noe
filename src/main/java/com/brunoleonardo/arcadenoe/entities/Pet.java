@@ -17,6 +17,9 @@ public class Pet {
 	@Column(name = "pet_nome", length = 30)
 	String nome;
 	
+	@Column(name = "espécie", length = 30)
+	String especie;
+	
 	@Column(name = "raca", length = 30)
 	String raca;
 	

@@ -26,6 +26,12 @@ public class Veterinario {
     
     @Column(name = "CRMV")
     String crmv;
+    
+    @Column(name = "especialidade", length = 50)
+    String especiallidade;
+    
+    @Column(name = "telefone", length = 30)
+    String telefone;
 	
 	@OneToOne
 	Endereco endereco;

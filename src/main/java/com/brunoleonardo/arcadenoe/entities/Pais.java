@@ -22,6 +22,9 @@ public class Pais {
 	@OneToMany(mappedBy = "pais")
 	List<Estado> estados;
 
+	public Pais() {
+	}
+
 	public Pais(Long id, String pais, List<Estado> estados) {
 		this.id = id;
 		this.pais = pais;

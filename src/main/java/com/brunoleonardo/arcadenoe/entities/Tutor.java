@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,11 +31,17 @@ public class Tutor {
 	@Column(name = "email")
 	String email;
 	
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER)
 	Endereco endereco;
+	
+	@Column(name = "telefone")
+	String telefone;
 	
 	@OneToMany(mappedBy = "tutor")
 	List<Pet> pet = new ArrayList<Pet>();
+
+	public Tutor() {
+	}
 
 	public Tutor(Long id, String nome, String sobrenome, String cpf, Endereco endereco, List<Pet> pet) {
 		this.id = id;

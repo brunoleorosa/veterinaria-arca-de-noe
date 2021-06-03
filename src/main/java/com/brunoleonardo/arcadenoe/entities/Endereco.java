@@ -2,6 +2,7 @@ package com.brunoleonardo.arcadenoe.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,7 +30,7 @@ public class Endereco {
 	@OneToOne
 	Estado estado;
 	
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER)
 	Pais pais;
 
 	public Endereco(Long id, String logradouro, String cep, String bairro, Cidade cidade, Estado estado, Pais pais) {
