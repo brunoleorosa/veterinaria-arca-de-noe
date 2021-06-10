@@ -18,19 +18,11 @@ public class EstadoDto {
 		return estado;
 	}
 
-	public Long getPais_id() {
-		return pais_id;
-	}
-
 	public EstadoDto() {
 	}
 
 	public EstadoDto(Estado estado) {
 		this.id = estado.getId();
 		this.estado = estado.getEstado();
-		this.pais_id = estado.getPais().getId();
 	}
-	
-	
-
 }

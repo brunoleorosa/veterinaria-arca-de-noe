@@ -1,5 +1,6 @@
 package com.brunoleonardo.arcadenoe.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,61 +14,77 @@ public class Endereco {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
+	private Long id;
 	
-	@Column(name = "logradouro")
-	String logradouro;
+	@Column
+	private String logradouro;
 	
-	@Column(name = "CEP")
-	String cep;
+	@Column
+	private String cep;
 	
-	@Column(name = "bairro")
-	String bairro;
+	@Column
+	private String bairro;
 	
-	@OneToOne
-	Cidade cidade;
+	@OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+	private Cidade cidade;
 	
-	@OneToOne
-	Estado estado;
-	
-	@OneToOne(fetch = FetchType.EAGER)
-	Pais pais;
+	@OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+	private Estado estado;
 
-	public Endereco(Long id, String logradouro, String cep, String bairro, Cidade cidade, Estado estado, Pais pais) {
+	public Endereco(Long id, String logradouro, String cep, String bairro, Cidade cidade, Estado estado) {
 		this.id = id;
 		this.logradouro = logradouro;
 		this.cep = cep;
 		this.bairro = bairro;
 		this.cidade = cidade;
 		this.estado = estado;
-		this.pais = pais;
 	}
 
 	public Long getId() {
 		return id;
 	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getLogradouro() {
 		return logradouro;
+	}
+
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
 	}
 
 	public String getCep() {
 		return cep;
 	}
 
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
 	public String getBairro() {
 		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
 	}
 
 	public Cidade getCidade() {
 		return cidade;
 	}
 
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
+	}
+
 	public Estado getEstado() {
 		return estado;
 	}
 
-	public Pais getPais() {
-		return pais;
+	public void setEstado(Estado estado) {
+		this.estado = estado;
 	}
 }

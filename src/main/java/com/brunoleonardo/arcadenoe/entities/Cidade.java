@@ -1,7 +1,9 @@
 package com.brunoleonardo.arcadenoe.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,14 +15,16 @@ public class Cidade {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	
-	@Column(name = "cidade")
+	@Column
 	String cidade;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	Estado estado;
 
-	public Cidade(Long id, String cidade, Estado estado) {
-		this.id = id;
+	public Cidade() {
+	}
+
+	public Cidade(String cidade, Estado estado) {
 		this.cidade = cidade;
 		this.estado = estado;
 	}
@@ -36,6 +40,16 @@ public class Cidade {
 	public Estado getEstado() {
 		return estado;
 	}
-	
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
 }

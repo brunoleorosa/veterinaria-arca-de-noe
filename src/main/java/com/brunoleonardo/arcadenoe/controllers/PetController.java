@@ -12,48 +12,45 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.brunoleonardo.arcadenoe.controllers.dto.CidadeDto;
 import com.brunoleonardo.arcadenoe.controllers.dto.EstadoDto;
-import com.brunoleonardo.arcadenoe.controllers.dto.TutorDto;
-import com.brunoleonardo.arcadenoe.entities.Tutor;
+import com.brunoleonardo.arcadenoe.controllers.dto.PetDto;
+import com.brunoleonardo.arcadenoe.entities.Pet;
 import com.brunoleonardo.arcadenoe.repositories.CidadeRepository;
 import com.brunoleonardo.arcadenoe.repositories.EstadoRepository;
-import com.brunoleonardo.arcadenoe.repositories.TutorRepository;
+import com.brunoleonardo.arcadenoe.repositories.PetRepository;
 
 @Controller
 @RequestMapping("/cadastros")
-public class TutorController {
+public class PetController {
 	
 	@Autowired
-	private TutorRepository tutorRepository;
-	
-	@Autowired
-	private EstadoRepository estadoRepository;
+	private PetRepository petRepository;
 	
 	@Autowired
 	private CidadeRepository cidadeRepository;
 	
-	@GetMapping("/novoTutor")
-	public String novo(Model model) {
-		
-		model.addAttribute("tutor", new Tutor());
+	@Autowired
+	private EstadoRepository estadoRepository;
+	
+	@GetMapping("/novoPet")
+	public String novoPet(Model model) {
+		model.addAttribute("pet", new Pet());
 		model.addAttribute("estados", retornaEstadoDto());
 		model.addAttribute("cidades", retornaCidadeDto());
-		
-		return "cadastros/cadastroTutor";
+		return "cadastros/cadastroPet";
 	}
 	
-	@PostMapping("/cadastroTutor")
-	public String cadastraTutor(@Valid TutorDto tutorDto, BindingResult result, Model model) {
+	@PostMapping("/cadastroPet")
+	public String cadastraPet(@Valid PetDto petDto, BindingResult result, Model model) {
 		if(result.hasErrors()) {
 			model.addAttribute("erro", "Erro ao tentar cadastrar Pet:" + result.getAllErrors().get(0).getDefaultMessage());
-			model.addAttribute("tutor", tutorDto);
-			return "cadastros/cadastroTutor";
+			return "cadastros/cadastroPet";
 		}
-		Tutor tutor = tutorDto.converter();
-		tutorRepository.save(tutor);
+		Pet pet = petDto.converter();
+		petRepository.save(pet);
 		return "redirect:/";
-		
 	}
 	
 	private Object retornaEstadoDto() {
@@ -73,4 +70,5 @@ public class TutorController {
 		});
 		return cidadesDto;
 	}
+
 }

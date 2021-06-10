@@ -6,9 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Index</title>
-
-<spring:url value="/cadastros/cadastroTutor" var="cadastroTutor"></spring:url>
+<title>Home</title>
 
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 
@@ -16,9 +14,9 @@
 <body>
 <jsp:include page="comum/Navbar.jsp"></jsp:include>
 
-	<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+	<div id="carousel" class="carousel slide" data-ride="carousel">
 	  <ol class="carousel-indicators">
-	    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+	    <li data-target="jumpingcat" data-slide-to="0" class="active"></li>
 	    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
 	    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
 	  </ol>
