@@ -26,7 +26,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/cadastros/novoPet">Cadastrar Pet</a>
           <a class="dropdown-item" href="/cadastros/novoTutor">Cadastrar Tutor</a>
-          <a class="dropdown-item" href="#">Cadastrar Veterinário</a>
+          <a class="dropdown-item" href="/cadastros/novoVeterinario">Cadastrar Veterinário</a>
         </div>
       </li>
       <li class="nav-item active">
